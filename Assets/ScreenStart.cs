@@ -255,15 +255,19 @@ public class ScreenStart : MonoBehaviour
     }
     public void Get_Reward()
     {
-        ManagerAds.Ins.ShowRewardedVideo(success =>
+        if (ManagerAds.Ins.IsRewardVideoAvailable())
         {
-            if (success)
+            ManagerAds.Ins.ShowRewardedVideo(success =>
             {
-                int star = GameController.instance.Get_Star();
-                star += 25;
-                GameController.instance.Save_Star(star);
-            }
-        });
+                if (success)
+                {
+                    int star = GameController.instance.Get_Star();
+                    star += 25;
+                    GameController.instance.Save_Star(star);
+                }
+            });
+
+        }
     }
 
 }
