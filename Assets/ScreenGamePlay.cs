@@ -375,7 +375,7 @@ public class ScreenGamePlay : MonoBehaviour
     
     public void Rate_Us()
     {
-        ManagerAds.Ins.RateApp();
+
     }
 
     public void adsToContinue()

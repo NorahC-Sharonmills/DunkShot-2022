@@ -80,13 +80,11 @@ public class Setting : MonoBehaviour
     }
     public void Rate_Us()
     {
-        ManagerAds.Ins.RateApp();
 
     }
 
     public void MoreGame()
     {
-        ManagerAds.Ins.MoreGame();
 
     }
 }

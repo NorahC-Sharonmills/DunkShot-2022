@@ -247,28 +247,23 @@ public class ScreenStart : MonoBehaviour
     
    public void More_Game()
     {
-        ManagerAds.Ins.MoreGame();
+
     }
     public void Rate_US()
     {
-        ManagerAds.Ins.RateApp();
 
     }
     public void Get_Reward()
     {
-        if (ManagerAds.Ins.IsRewardVideoAvailable())
+        ManagerAds.Ins.ShowRewardedVideo(success =>
         {
-            ManagerAds.Ins.ShowRewardedVideo(success =>
+            if (success)
             {
-                if (success)
-                {
-                    int star = GameController.instance.Get_Star();
-                    star += 25;
-                    GameController.instance.Save_Star(star);
-                }
-            });
-
-        }
+                int star = GameController.instance.Get_Star();
+                star += 25;
+                GameController.instance.Save_Star(star);
+            }
+        });
     }
 
 }
